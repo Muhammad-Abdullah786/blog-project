@@ -118,6 +118,18 @@ class Service {
         }
     }
 
-    async
+    async getFilePreview(fileId) {
+        try {
+            return await this.storage.getFilePreview(
+                config.appwriteBucketId,
+                fileId,
+                // you can add width and many more look at the docs
+                // https://appwrite.io/docs/references/1.5.x/client-web/storage
+            )
+        } catch (error) {
+            throw new Error(`error getting preview file ${error}`)
+        }
+
+    }
 
 }
