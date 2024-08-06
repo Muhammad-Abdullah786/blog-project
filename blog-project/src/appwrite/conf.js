@@ -107,14 +107,17 @@ class Service {
         }
     }
 
-    async deleteFile(ID) {
+    async deleteFile(fileId) {
         try {
             return await this.storage.deleteFile(
                 config.appwriteBucketId,
-                ID,
+                fileId,
             )
         } catch (error) {
             throw new Error(`failed to delete file ${error}`)
         }
     }
+
+    async
+
 }
