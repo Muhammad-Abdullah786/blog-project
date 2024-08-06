@@ -1,5 +1,5 @@
 import config from "../config/config";
-import { Client, Databases, ID, Storage } from "appwrite";
+import { Client, Databases, ID, Query, Storage } from "appwrite";
 
 
 class Service {
@@ -34,12 +34,12 @@ class Service {
         }
     }
 
-    async updateDocument({ title, slug, content, featuredImage, status }) {
+    async updateDocument(ID, { title, slug, content, featuredImage, status }) {
         try {
             return await this.database.updateDocument(
                 config.appwriteDatabaseId,
                 config.appwriteCollectionId,
-                ID.unique(),// might throw an error in updating 
+                ID,// might throw an error in updating 
                 {
                     title,
                     slug,
@@ -53,19 +53,12 @@ class Service {
         }
     }
 
-    async deleteDocument({ title, slug, content, featuredImage, status }) {
+    async deleteDocument(ID) {
         try {
-            return await this.database.deleteDocument(
+            await this.database.deleteDocument(
                 config.appwriteDatabaseId,
                 config.appwriteCollectionId,
-                ID.unique(),
-                {
-                    title,
-                    slug,
-                    content,
-                    featuredImage,
-                    status,
-                }
+                ID,
 
             )
         } catch (error) {
@@ -73,4 +66,44 @@ class Service {
         }
     }
 
+
+    async getDocuments(ID) {
+        try {
+            return await this.database.getDocument(
+                config.appwriteDatabaseId,
+                config.appwriteCollectionId,
+                ID,
+            )
+
+        } catch (error) {
+            throw new Error(`unable to get documents ${error}`)
+        }
+    }
+
+    async listAllDocs() {
+        try {
+            return await this.database.listDocuments(
+                config.appwriteDatabaseId,
+                config.appwriteCollectionId,
+                [
+                    Query.equal("status", ["active"])
+                ],
+            )
+        } catch (error) {
+            throw new Error(`failed to list all docs ${error}`)
+        }
+    }
+
+    // now how do i upload file
+    async uploadFile(file) {
+        try {
+            return await this.storage.createFile(
+                config.appwriteBucketId,
+                ID.unique(),
+                file
+            )
+        } catch (error) {
+            throw new Error(`failed to upload the file ${error} fix the error`)
+        }
+    }
 }
