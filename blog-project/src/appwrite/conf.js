@@ -106,4 +106,8 @@ class Service {
             throw new Error(`failed to upload the file ${error} fix the error`)
         }
     }
+
+    async deleteFile(){
+        
+    }
 }
