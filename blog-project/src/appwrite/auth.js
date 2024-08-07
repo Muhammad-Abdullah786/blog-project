@@ -2,7 +2,7 @@ import config from "../config/config";
 import { Client, Account, ID } from "appwrite";
 
 
-class Auth {
+export class Auth {
     client = new Client();
     // why account is empty because i have to put some value in client 
     account;
@@ -14,9 +14,10 @@ class Auth {
     }
     async createAccount({ email, password, name }) {
         try {
-            const user = await this.account(ID.unique(), email, password, name)
+            const user = await this.account.create(ID.unique(), email, password, name)
             if (user) {
                 // now we need to login user
+                this.login()
             } else {
                 return user
             }
