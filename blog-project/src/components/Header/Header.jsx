@@ -1,6 +1,6 @@
-import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { Container, LogOutBtn } from "../index";
+import React from "react";
+import { Link, Navigate, useNavigate } from "react-router-dom";
+import { Container, LogOutBtn, Logo } from "../index";
 import { useSelector } from "react-redux";
 
 function Header() {
@@ -40,6 +40,35 @@ function Header() {
       status: !authStatus,
     },
   ];
-  return <Header></Header>
-
+  return (
+    <>
+      <header>
+        <Container>
+          <nav>
+            <div>
+              <Link to="/">
+                <Logo width="100px"></Logo>
+              </Link>
+            </div>
+            {/* //  now i will loop all my navitems */}
+            {navItems.map((item) =>
+              item.active ? (
+                <li key={item.name}>
+                  <button className="" onClick={nevigate(item.url)}>
+                    {item.name}
+                  </button>
+                </li>
+              ) : null
+            )}
+            {authStatus && (
+              <li>
+                <LogOutBtn></LogOutBtn>
+              </li>
+            )}
+          </nav>
+        </Container>
+      </header>
+    </>
+  );
+}
 export default Header;

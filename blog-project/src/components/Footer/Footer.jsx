@@ -71,7 +71,7 @@ function Footer() {
               <ul className="text-sm space-y-2">
                 <li>
                   <Link
-                    to="#"
+                    to="/"
                     className="hover:text-gray-300 transition-colors"
                   >
                     Privacy Policy
@@ -79,7 +79,7 @@ function Footer() {
                 </li>
                 <li>
                   <Link
-                    to="#"
+                    to="/"
                     className="hover:text-gray-300 transition-colors"
                   >
                     Terms &amp; Conditions
@@ -102,7 +102,7 @@ function Footer() {
             . All Rights Reserved.
           </span>
           <div className="flex mt-4 space-x-6 sm:justify-center sm:mt-0">
-            <Link to="#" className="hover:text-gray-300 transition-colors">
+            <Link to="/" className="hover:text-gray-300 transition-colors">
               <svg
                 className="w-5 h-5"
                 fill="currentColor"
@@ -113,7 +113,7 @@ function Footer() {
               </svg>
               <span className="sr-only">Facebook page</span>
             </Link>
-            <Link to="#" className="hover:text-gray-300 transition-colors">
+            <Link to="/" className="hover:text-gray-300 transition-colors">
               <svg
                 className="w-5 h-5"
                 fill="currentColor"
@@ -124,7 +124,7 @@ function Footer() {
               </svg>
               <span className="sr-only">Discord community</span>
             </Link>
-            <Link to="#" className="hover:text-gray-300 transition-colors">
+            <Link to="/" className="hover:text-gray-300 transition-colors">
               <svg
                 className="w-5 h-5"
                 fill="currentColor"
@@ -135,7 +135,7 @@ function Footer() {
               </svg>
               <span className="sr-only">Twitter page</span>
             </Link>
-            <Link to="#" className="hover:text-gray-300 transition-colors">
+            <Link to="/" className="hover:text-gray-300 transition-colors">
               <svg
                 className="w-5 h-5"
                 fill="currentColor"
