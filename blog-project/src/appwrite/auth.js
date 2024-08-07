@@ -42,14 +42,17 @@ class Auth {
         }
     }
     // to get useraccount
-    async getUserAccount() {
+    async getCurrentUserAccount() {
         try {
             await this.account.get()
 
         } catch (error) {
-            throw new Error(`cannnot get user account ${error}`)
+            // throw new Error(`cannnot get user account ${error}`)        // dont know why its not working
+            console.log(`erroro  erroe jl ${error}`);
+
         }
     }
+
 }
 
 const authService = new Auth()
