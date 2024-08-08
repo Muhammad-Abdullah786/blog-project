@@ -7,7 +7,8 @@ import Button from "../components/Button"
 import Input from "./Input"
 import PostCard from "../components/PostCard"
 import Select from "../components/Select"
+import Signup from "./Signup"
 
 export {
-    Button, Input, PostCard, Select, Header, Logo, LogOutBtn, Footer, Container
+    Button, Signup, Input, PostCard, Select, Header, Logo, LogOutBtn, Footer, Container
 } 

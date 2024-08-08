@@ -22,6 +22,7 @@ function Login() {
         navigate("/");
       }
     } catch (error) {
+      setError(error);
       console.log(`error occured in login.jsx component ${error}`);
     }
   };
@@ -51,17 +52,15 @@ function Login() {
         ></Input>
 
         <Input
-        label = "Password: "
-        type = "password"
-        placeholder = "enter your password....."
-        {...register("password" ,{
-            required : true,
-            maxlen
-
-        })}
-
-        >
-        </Input>
+          label="Password: "
+          type="password"
+          placeholder="enter your password....."
+          {...register("password", {
+            required: true,
+            maxlength: 8,
+          })}
+        ></Input>
+        <Button type="submit" btnText="hello">Sign up</Button>
       </form>
     </>
   );
