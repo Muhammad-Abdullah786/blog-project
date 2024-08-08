@@ -8,7 +8,9 @@ import Input from "./Input"
 import PostCard from "../components/PostCard"
 import Select from "../components/Select"
 import Signup from "./Signup"
+import AuthLayout from '../components/AuthLayout'
 
 export {
+    AuthLayout,
     Button, Signup, Input, PostCard, Select, Header, Logo, LogOutBtn, Footer, Container
 } 
