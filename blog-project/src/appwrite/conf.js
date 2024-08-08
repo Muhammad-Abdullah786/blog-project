@@ -118,9 +118,9 @@ export class Service {
         }
     }
 
-    async getFilePreview(fileId) {
+    getFilePreview(fileId) {
         try {
-            return await this.storage.getFilePreview(
+            return this.storage.getFilePreview(
                 config.appwriteBucketId,
                 fileId,
                 // you can add width and many more look at the docs
