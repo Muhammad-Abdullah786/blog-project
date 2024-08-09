@@ -10,8 +10,11 @@ import Select from "../components/Select"
 import Signup from "./Signup"
 import AuthLayout from '../components/AuthLayout'
 import RTE from "./RTE"
+import PostForm from "./post-form/PostForm"
+import SignUp from "../components/pages/SignUp"
 
+import Login from "./Login"
 export {
-    AuthLayout, RTE,
+    AuthLayout, RTE, PostForm, SignUp, Login,
     Button, Signup, Input, PostCard, Select, Header, Logo, LogOutBtn, Footer, Container
 } 

@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect } from "react";
-import { useForm, watch } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { Button, Input, Select } from "../index";
 import { service } from "../../appwrite/conf";
 import { useNavigate } from "react-router-dom";
@@ -76,7 +76,7 @@ function PostForm() {
   }, [slugTransformer, watch, navigate, setValue]);
 
   return (
-    <form onSubmit={handleSubmit(submit)} className="flex flex-wrap">
+    <form onSubmit={handleSubmit(onSubmit)} className="flex flex-wrap">
       <div className="w-2/3 px-2">
         <Input
           label="Title :"
