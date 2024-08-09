@@ -9,8 +9,9 @@ import PostCard from "../components/PostCard"
 import Select from "../components/Select"
 import Signup from "./Signup"
 import AuthLayout from '../components/AuthLayout'
+import RTE from "./RTE"
 
 export {
-    AuthLayout,
+    AuthLayout, RTE,
     Button, Signup, Input, PostCard, Select, Header, Logo, LogOutBtn, Footer, Container
 } 
