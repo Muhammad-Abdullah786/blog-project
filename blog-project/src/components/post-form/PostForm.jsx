@@ -6,8 +6,13 @@ import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 function PostForm() {
-    const {} = useForm()
-    const navigate = useNavigate()
+    const {register, handleSubmit} = useForm({
+      defaultValues:{
+        title: ""
+      }
+    })
+    const navigate = useNavigate()// not sure why i am using user.userdata
+    const post = useSelector(state => state.user.userData)
   return <div>PostForm</div>;
 }
 
