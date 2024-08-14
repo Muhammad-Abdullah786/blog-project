@@ -2,7 +2,7 @@ import config from "../config/config";
 import { Client, Databases, ID, Query, Storage } from "appwrite";
 
 
-class Service {
+export class Service {
     client = new Client();
     database;
     storage;
@@ -19,10 +19,9 @@ class Service {
             return await this.database.createDocument(
                 config.appwriteDatabaseId,
                 config.appwriteCollectionId,
-                ID.unique(),
+                slug,
                 {
                     title: title,
-                    slug: slug,
                     content: content,
                     featuredImage: featuredImage,
                     status: status,
@@ -34,15 +33,15 @@ class Service {
         }
     }
 
-    async updateDocument(ID, { title, slug, content, featuredImage, status }) {
+    async updateDocument(slug, { title, content, featuredImage, status }) {
         try {
             return await this.database.updateDocument(
                 config.appwriteDatabaseId,
                 config.appwriteCollectionId,
-                ID,// might throw an error in updating 
+                slug,// might throw an error in updating 
                 {
                     title,
-                    slug,
+
                     content,
                     featuredImage,
                     status,
@@ -53,12 +52,12 @@ class Service {
         }
     }
 
-    async deleteDocument(ID) {
+    async deleteDocument(slug) {
         try {
             await this.database.deleteDocument(
                 config.appwriteDatabaseId,
                 config.appwriteCollectionId,
-                ID,
+                slug,
 
             )
         } catch (error) {
@@ -67,12 +66,12 @@ class Service {
     }
 
 
-    async getDocuments(ID) {
+    async getDocuments(slug) {
         try {
             return await this.database.getDocument(
                 config.appwriteDatabaseId,
                 config.appwriteCollectionId,
-                ID,
+                slug,
             )
 
         } catch (error) {
@@ -133,3 +132,6 @@ class Service {
     }
 
 }
+
+const service = new Service()
+export default service
